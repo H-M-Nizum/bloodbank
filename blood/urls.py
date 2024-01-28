@@ -4,8 +4,8 @@ from . import views
 
 router = DefaultRouter()
 
-router.register('list', views.Donorviewset)
-router.register('donatlist', views.BloodDonateviewset)
+router.register('list', views.BloodStockviewset)
+router.register('requestlist', views.BloodRequestviewset)
 
 urlpatterns = [
     path('', include(router.urls))
