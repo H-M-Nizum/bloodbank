@@ -45,3 +45,8 @@ class UserLoginSerializer(serializers.Serializer):
 class AdminLoginSerializer(serializers.Serializer):
     username = serializers.CharField(required=True)
     password = serializers.CharField(required=True)
+
+class ContactUsSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = models.ContactUsModel
+        fields = '__all__'

@@ -16,3 +16,12 @@ class Patientmodel(models.Model):
   
     def __str__(self):
         return self.user.first_name+ " " + self.user.last_name
+
+class ContactUsModel(models.Model):
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=12)
+    email = models.EmailField()
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name

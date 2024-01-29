@@ -128,3 +128,25 @@ class AdminLogoutAPIView(APIView):
         logout(request)
         return redirect("adminlogin")
 
+class ContactAPIView(APIView):
+    serializer_class = serializers.ContactUsSerializers
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+
+        if serializer.is_valid():
+            name = serializer.validated_data['name']
+            email = serializer.validated_data['email']
+            phone = serializer.validated_data['phone']
+            message = serializer.validated_data['message']
+            print(name, email, phone, message)
+
+            email_subject = "Contact email"
+            email_body = render_to_string('mail.html', {'name':name, 'from_email':email, 'message':message, 'phone': phone})
+
+            email = EmailMultiAlternatives(email_subject, '', email, to=['hmnizum1714032@gmail.com'])
+            email.attach_alternative(email_body, "text/html")
+            email.send()
+
+            
+            return Response(" Message Sent Successfully!")
+        return Response(serializer.errors)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Patientmodel
+from .models import Patientmodel, ContactUsModel
 # Register your models here.
 
 class PatientAdmin(admin.ModelAdmin):
@@ -16,3 +16,8 @@ class PatientAdmin(admin.ModelAdmin):
         return obj.user.email
 
 admin.site.register(Patientmodel, PatientAdmin)
+
+class ContactUsAdmin(admin.ModelAdmin):
+    list_display = ['name', 'phone', 'message']
+
+admin.site.register(ContactUsModel, ContactUsAdmin)

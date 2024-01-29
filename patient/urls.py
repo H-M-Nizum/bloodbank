@@ -6,6 +6,7 @@ router = DefaultRouter()
 
 router.register('list', views.Patientviewset)
 
+
 urlpatterns = [
     path('', include(router.urls)),
     path('register/', views.patientRegisterViewsset.as_view(), name='register'), 
@@ -13,5 +14,6 @@ urlpatterns = [
     path('logout/', views.UserLogoutView.as_view(), name='logout'),
     path('adminlogin/', views.AdminLoginApiview.as_view(), name='adminlogin'),
     path('adminlogout/', views.AdminLogoutAPIView.as_view(), name='adminlogout'),
-    path('active/<uid64>/<token>/', views.activate, name='activate')
+    path('active/<uid64>/<token>/', views.activate, name='activate'),
+    path('contact/', views.ContactAPIView.as_view(), name='contact'),
 ]
