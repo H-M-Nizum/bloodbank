@@ -46,7 +46,7 @@ class patientRegisterViewsset(APIView):
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             # print(uid)
 
-            confirm_link = f"http://127.0.0.1:8000/patient/active/{uid}/{token}"
+            confirm_link = f"https://lifesafe-bank.onrender.com/patient/active/{uid}/{token}"
 
             email_subject = 'Çonfirm your email'
             email_body = render_to_string('email.html', {'confirm_link' : confirm_link})
