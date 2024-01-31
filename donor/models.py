@@ -18,7 +18,7 @@ DONATE_STATUS = [
 ]
 
 class BloodDonate(models.Model): 
-    donor = models.ForeignKey(Donormodel,on_delete=models.CASCADE)   
+    donor = models.ForeignKey(User,on_delete=models.CASCADE)   
     age = models.PositiveIntegerField()
     bloodgroup = models.CharField(max_length=10)
     unit = models.PositiveIntegerField(default=0)

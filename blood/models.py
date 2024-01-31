@@ -1,6 +1,7 @@
 from django.db import models
 from patient.models import Patientmodel
 from donor.models import Donormodel
+from django.contrib.auth.models import User
 
 class Stock(models.Model):
     bloodgroup = models.CharField(max_length=10)
@@ -14,8 +15,7 @@ DONATE_STATUS = [
     ('Rejected', 'Rejected'),
 ]
 class BloodRequest(models.Model):
-    request_by_patient = models.ForeignKey(Patientmodel, null=True,on_delete=models.CASCADE)
-    request_by_donor = models.ForeignKey(Donormodel,null=True,on_delete=models.CASCADE)
+    request_by_patient = models.ForeignKey(User, null=True,on_delete=models.CASCADE)
     patient_name = models.CharField(max_length=30)
     patient_age = models.PositiveIntegerField()
     reason = models.CharField(max_length=500)
