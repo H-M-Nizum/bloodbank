@@ -96,12 +96,20 @@ class UserLoginApiview(APIView):
         return Response(serializer.errors)
 
 
-class UserLogoutView(APIView):
-    def get(self, request):
-        request.user.auth_token.delete()
-        logout(request)
-        return redirect("login")
+# class UserLogoutView(APIView):
+#     def get(self, request):
+#         request.user.auth_token.delete()
+#         logout(request)
+#         return redirect("login")
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
+class UserLogoutView(APIView):
+    def get(self, request, format=None):
+        # simply delete the token to force a login
+        request.user.auth_token.delete()
+        return Response(status=status.HTTP_200_OK)
 
 
 
