@@ -2,7 +2,7 @@
 
 Using django rest framework
 
-[Api_link}(https://lifesafe-bank.onrender.com/)
+[Api_link](https://lifesafe-bank.onrender.com/)
 
 ## Database Diagram
 
